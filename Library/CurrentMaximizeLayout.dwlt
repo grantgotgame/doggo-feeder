@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 715, y: 498}
   m_MaxSize: {x: 18010, y: 14048}
   vertical: 0
-  controlID: 122
+  controlID: 4726
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 100
+  controlID: 4727
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -288,7 +288,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 96090000
     m_LastClickedID: 2454
-    m_ExpandedIDs: 00000000fe090000320a0000440b0000e00b0000e20b00002e0c00001c0d0000600d0000
+    m_ExpandedIDs: ffffffff00000000000a0000340a0000460b0000e20b0000e40b0000100c0000300c00001e0d00002e0d0000620d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -313,10 +313,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 25}
-    m_SelectedIDs: 56ab0100
-    m_LastClickedID: 109398
-    m_ExpandedIDs: ffffffff00000000fe090000320a0000440b0000e00b0000e20b00002e0c00001c0d0000600d0000
+    scrollPos: {x: 0, y: 313}
+    m_SelectedIDs: cc0a0000
+    m_LastClickedID: 2764
+    m_ExpandedIDs: ffffffff00000000000a0000340a0000460b0000e20b0000e40b0000100c0000300c00001e0d00002e0d0000620d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -341,8 +341,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 56ab0100
-    m_LastClickedInstanceID: 109398
+    m_SelectedInstanceIDs: cc0a0000
+    m_LastClickedInstanceID: 2764
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 448}
   m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
-  controlID: 33
+  controlID: 4500
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
