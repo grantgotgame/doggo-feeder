@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 1820954790630732239}
   - component: {fileID: 1820954790629621687}
   - component: {fileID: 1820954789791005739}
-  - component: {fileID: 95047400}
   - component: {fileID: 65867344565759868}
   - component: {fileID: 8479201418989246679}
   - component: {fileID: 114980228884677638}
+  - component: {fileID: 114003294585696906}
   m_Layer: 0
   m_Name: Food_Bone_01
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,18 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
---- !u!114 &95047400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820954790631825779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e521042368fbf4d9a150d23b1d0bd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &65867344565759868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -146,5 +134,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c5bf9e7dc508674fb57ebd3654ff788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114003294585696906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820954790631825779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8297a694a3adf4ca42aa99cac52822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

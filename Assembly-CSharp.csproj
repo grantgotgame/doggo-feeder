@@ -69,6 +69,7 @@
     <Compile Include="Assets\Challenge 2\Scripts\PlayerControllerX.cs" />
     <Compile Include="Assets\Challenge 2\Scripts\SpawnManagerX.cs" />
     <Compile Include="Assets\Scripts\DestroyOutOfBounds.cs" />
+    <Compile Include="Assets\Scripts\DestroyOutOfBoundsFood.cs" />
     <Compile Include="Assets\Scripts\DetectCollisions.cs" />
     <Compile Include="Assets\Scripts\MoveForward.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

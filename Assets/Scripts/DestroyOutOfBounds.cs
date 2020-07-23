@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-
-    private float topBound = 30;
-    private float lowerBound = -10;
+    private float topBound = SpawnManager.spawnPosZ;
+    private float lowerBound = -5f;
+    private float rightBound = SpawnManager.spawnPosX;
+    private float leftBound = SpawnManager.spawnPosX * -1f;
+    private string gameOver = "Game Over!";
 
     // Start is called before the first frame update
     void Start()
@@ -18,15 +20,14 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Revome objects that pass below player's view
-        if (transform.position.z > topBound)
+        // Remove doggos that pass out of player's view
+        if (transform.position.z > topBound || transform.position.z < lowerBound ||
+            transform.position.x > rightBound || transform.position.x < leftBound)
         {
+            Debug.Log(gameOver);
             Destroy(gameObject);
         }
-        else if (transform.position.z < lowerBound)
-        {
-            Debug.Log("Game Over!");
-            Destroy(gameObject);
-        }
+        
     }
+
 }
