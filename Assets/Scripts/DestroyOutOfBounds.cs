@@ -9,7 +9,7 @@ public class DestroyOutOfBounds : MonoBehaviour
     private float lowerBound = -5f;
     private float rightBound = SpawnManager.spawnPosX;
     private float leftBound = SpawnManager.spawnPosX * -1f;
-    private string gameOver = "Game Over!";
+    public static string gameOver = "Game Over!";
 
     // Start is called before the first frame update
     void Start()

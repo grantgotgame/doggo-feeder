@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-    public float verticalInput;
-    public float speed = 10f;
+    // Player movement variables
+    private float horizontalInput;
+    private float verticalInput;
+
+    // Set axes
+    private string horizontalAxis = "Horizontal";
+    private string verticalAxis = "Vertical";
+    
+    // Speed for all game objects (set individually on each)
+    public float speed;
+
+    // Player movement ranges
     public static float xRange = 17f;
     public static float zRangeMax = 15f;
     public static float zRangeMin = 0f;
+
+    // Food timer variables
     private float boneTimer = 0;
     private float boneTimerLength = .5f;
 
+    // Food prefab
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
@@ -23,27 +36,45 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
-        // Move player horizontally
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
-        // Move player vertically
-        verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
-
+    {
         // Countdown bone timer
         boneTimer -= Time.deltaTime;
 
         // Throw bones
-        if (Input.GetKey(KeyCode.Space) && boneTimer <0)
+        if (Input.GetKey(KeyCode.Space) && boneTimer < 0)
         {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
             // Reset bone timer
             boneTimer = boneTimerLength;
         }
 
-        // Set range for horizontal player movement        
+        // Get movement inputs
+        horizontalInput = Input.GetAxis(horizontalAxis);
+        verticalInput = Input.GetAxis(verticalAxis);
+
+        // Move player   
+        transform.position = transform.position + new Vector3(horizontalInput * speed * Time.deltaTime, 0,
+            verticalInput * speed * Time.deltaTime);
+
+        // Set player direction
+        if (Input.GetAxisRaw(verticalAxis) < 0) 
+        { 
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (Input.GetAxisRaw(verticalAxis) > 0) 
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetAxisRaw(horizontalAxis) < 0) 
+        {
+            transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+        else if (Input.GetAxisRaw(horizontalAxis) > 0) 
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+                        
+        // Enforce range for player movement        
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -51,9 +82,7 @@ public class PlayerController : MonoBehaviour
         else if (transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        }
-
-        // Set range for vertical player movement        
+        }       
         if (transform.position.z < zRangeMin)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeMin);

@@ -16,9 +16,10 @@ public class DetectCollisions : MonoBehaviour
 
     }
 
+    // If food hits doggo, remove food and doggo
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Food"))
+        if (other.CompareTag("Doggo"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
