@@ -9,7 +9,6 @@ public class DestroyOutOfBounds : MonoBehaviour
     private float lowerBound = -5f;
     private float rightBound = SpawnManager.spawnPosX;
     private float leftBound = SpawnManager.spawnPosX * -1f;
-    public static string gameOver = "Game Over!";
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         if (transform.position.z > topBound || transform.position.z < lowerBound ||
             transform.position.x > rightBound || transform.position.x < leftBound)
         {
-            DetectPlayerCollisions.lives--;
+            LivesText.lives--;
             Destroy(gameObject);
         }
         

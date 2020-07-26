@@ -5,16 +5,15 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed;
+
     // Player movement variables
     private float horizontalInput;
-    private float verticalInput;
+    private float verticalInput;    
 
     // Set axes
     private string horizontalAxis = "Horizontal";
-    private string verticalAxis = "Vertical";
-    
-    // Speed for all game objects (set individually on each)
-    public float speed;
+    private string verticalAxis = "Vertical";    
 
     // Player movement ranges
     public static float xRange = 17f;
@@ -44,36 +43,34 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && boneTimer < 0)
         {
             Instantiate(projectilePrefab, transform.position, transform.rotation);
-            // Reset bone timer
-            boneTimer = boneTimerLength;
+            boneTimer = boneTimerLength; // Reset bone timer
         }
 
-        // Get movement inputs
+        // Move player
         horizontalInput = Input.GetAxis(horizontalAxis);
         verticalInput = Input.GetAxis(verticalAxis);
-
-        // Move player   
         transform.position = transform.position + new Vector3(horizontalInput * speed * Time.deltaTime, 0,
             verticalInput * speed * Time.deltaTime);
 
         // Set player direction
-        if (Input.GetAxisRaw(verticalAxis) < 0) 
-        { 
+        if (Input.GetAxisRaw(verticalAxis) < 0)
+        {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (Input.GetAxisRaw(verticalAxis) > 0) 
+        else if (Input.GetAxisRaw(verticalAxis) > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetAxisRaw(horizontalAxis) < 0) 
+
+        if (Input.GetAxisRaw(horizontalAxis) < 0)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-        else if (Input.GetAxisRaw(horizontalAxis) > 0) 
+        else if (Input.GetAxisRaw(horizontalAxis) > 0)
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-                        
+
         // Enforce range for player movement        
         if (transform.position.x < -xRange)
         {
@@ -82,7 +79,8 @@ public class PlayerController : MonoBehaviour
         else if (transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        }       
+        }
+
         if (transform.position.z < zRangeMin)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeMin);
@@ -90,6 +88,16 @@ public class PlayerController : MonoBehaviour
         else if (transform.position.z > zRangeMax)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeMax);
+        }
+    }
+
+    // Detect collisions with doggos
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Doggo"))
+        {
+            Destroy(other.gameObject);
+            LivesText.lives--;
         }
     }
 }
