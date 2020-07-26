@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
-{    
+{
     // Timing variables
-    private float startDelay = 2;
+    private float startDelay = 2f;
     private float spawnInterval = 2f;
 
     // Spawn variables for vertical doggos
@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     // Spawn variables for horizontal doggos
     private float spawnRangeZMax = PlayerController.zRangeMax;
-    private float spawnRangeZMin = PlayerController.zRangeMin +2f;
+    private float spawnRangeZMin = PlayerController.zRangeMin + 2f;
     public static float spawnPosX = 22f;
 
     // Doggo array variables
@@ -25,13 +25,13 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);        
+        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SpawnRandomAnimal()
@@ -43,17 +43,21 @@ public class SpawnManager : MonoBehaviour
         int doggoDirection = Random.Range(0, 4);
         switch (doggoDirection)
         {
-            case 0: SpawnDoggoTop();
+            case 0:
+                SpawnDoggoTop();
                 break;
-            case 1: SpawnDoggoRight();
+            case 1:
+                SpawnDoggoRight();
                 break;
-            case 2: SpawnDoggoLeft();
+            case 2:
+                SpawnDoggoLeft();
                 break;
-            case 3: SpawnDoggoBottom();
+            case 3:
+                SpawnDoggoBottom();
                 break;
-            default:                
+            default:
                 break;
-        }                        
+        }
     }
 
     // Spawn a doggo
