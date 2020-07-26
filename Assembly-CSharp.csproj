@@ -72,8 +72,10 @@
     <Compile Include="Assets\Scripts\DestroyOutOfBoundsFood.cs" />
     <Compile Include="Assets\Scripts\DetectCollisions.cs" />
     <Compile Include="Assets\Scripts\DetectPlayerCollisions.cs" />
+    <Compile Include="Assets\Scripts\LivesText.cs" />
     <Compile Include="Assets\Scripts\MoveForward.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ScoreText.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <None Include="Assets\Course Library\_Source_Files\_LICENSE.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">

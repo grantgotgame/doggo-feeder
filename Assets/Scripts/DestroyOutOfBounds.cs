@@ -24,7 +24,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         if (transform.position.z > topBound || transform.position.z < lowerBound ||
             transform.position.x > rightBound || transform.position.x < leftBound)
         {
-            Debug.Log(gameOver);
+            DetectPlayerCollisions.lives--;
             Destroy(gameObject);
         }
         
