@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     // Set axes
     private string horizontalAxis = "Horizontal";
-    private string verticalAxis = "Vertical";    
+    private string verticalAxis = "Vertical";
+    private string strafe = "Fire3";
 
     // Player movement ranges
     public static float xRange = 17f;
@@ -53,24 +54,27 @@ public class PlayerController : MonoBehaviour
             verticalInput * speed * Time.deltaTime);
 
         // Set player direction
-        if (Input.GetAxisRaw(verticalAxis) < 0)
+        if (Input.GetAxisRaw(strafe) == 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (Input.GetAxisRaw(verticalAxis) > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+            if (Input.GetAxisRaw(verticalAxis) < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (Input.GetAxisRaw(verticalAxis) > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
 
-        if (Input.GetAxisRaw(horizontalAxis) < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, -90, 0);
+            if (Input.GetAxisRaw(horizontalAxis) < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else if (Input.GetAxisRaw(horizontalAxis) > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
         }
-        else if (Input.GetAxisRaw(horizontalAxis) > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
-        }
-
+        
         // Enforce range for player movement        
         if (transform.position.x < -xRange)
         {

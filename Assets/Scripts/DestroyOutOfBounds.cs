@@ -5,28 +5,41 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    private float topBound = SpawnManager.spawnPosZ;
-    private float lowerBound = -5f;
-    private float rightBound = SpawnManager.spawnPosX;
-    private float leftBound = SpawnManager.spawnPosX * -1f;
+    private float marginOfError;
+    private float topBound;
+    private float lowerBound;
+    private float rightBound;
+    private float leftBound;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        topBound = SpawnManager.spawnPosZTop + marginOfError;
+        lowerBound = SpawnManager.spawnPosZBottom - marginOfError;
+        rightBound = SpawnManager.spawnPosX + marginOfError;
+        leftBound = (SpawnManager.spawnPosX * -1f) - marginOfError;
+        if (CompareTag("Doggo"))
+        {
+            marginOfError = 0;
+        }
+        else
+        {
+            marginOfError = 2f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Remove doggos that pass out of player's view
+        // Remove objects that pass out of player's view
         if (transform.position.z > topBound || transform.position.z < lowerBound ||
             transform.position.x > rightBound || transform.position.x < leftBound)
         {
-            LivesText.lives--;
             Destroy(gameObject);
+            if (CompareTag("Doggo"))
+            { 
+            LivesText.lives--;
+            }
         }
-        
     }
-
 }

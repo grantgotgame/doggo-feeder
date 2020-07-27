@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class DetectCollisions : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class DetectCollisions : MonoBehaviour
         if (other.CompareTag("Doggo"))
         {
             Destroy(gameObject);
-            Destroy(other.gameObject);
             ScoreText.score++;
+            other.GetComponent<Hunger>().SetHunger(1);
         }
-        
+
     }
 }

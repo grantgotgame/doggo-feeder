@@ -6,16 +6,16 @@ public class SpawnManager : MonoBehaviour
 {
     // Timing variables
     private float startDelay = 2f;
-    private float spawnInterval = 2f;
+    private float spawnInterval = 2.5f;
 
     // Spawn variables for vertical doggos
     private float spawnRangeX = PlayerController.xRange - 1f;
-    public static float spawnPosZ = 20; //top
+    public static float spawnPosZTop = 20;
     public static float spawnPosZBottom = -5f;
 
     // Spawn variables for horizontal doggos
     private float spawnRangeZMax = PlayerController.zRangeMax;
-    private float spawnRangeZMin = PlayerController.zRangeMin + 2f;
+    private float spawnRangeZMin = PlayerController.zRangeMin;
     public static float spawnPosX = 22f;
 
     // Doggo array variables
@@ -63,8 +63,8 @@ public class SpawnManager : MonoBehaviour
     // Spawn a doggo
     void SpawnDoggoTop()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
-        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZTop);
+        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, 180, 0));
     }
     void SpawnDoggoRight()
     {
